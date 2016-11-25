@@ -10,6 +10,7 @@ N_win = 2^11;
 
 %% Partie spectro
 [audio, fe] = audioread(music);
+size(audio)
 N_lap = N_win/2;
 N_fft = N_win;
 [ stft, t, f ] = mystft(audio,N_win,N_lap,N_fft,fe);
