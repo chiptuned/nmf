@@ -29,10 +29,10 @@ colormap jet;
 hold on; 
 
 %% NMF par beta-divergence
-n_dict = 3;
+n_dict = 4;
 V = stft_abs;
-W = rand(size(V,1), 3);
-H = rand(3, size(V,2));
+W = rand(size(V,1), n_dict);
+H = rand(n_dict, size(V,2));
 
 % Bregman? https://en.wikipedia.org/wiki/Bregman_divergence
 
@@ -92,5 +92,3 @@ end
 
 % timestamp 32.971 à 35.917 bass guitar batterie
 % TIMESTAMP 2,43.727 à 2,45.203 bass batterie
-
-    
