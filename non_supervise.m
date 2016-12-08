@@ -40,7 +40,7 @@ for ind = 1:50
     W_p = W;
     W = W.*((((W*H).^(beta-2).*V)*H')./((W*H).^(beta-1)*H'));
     H = H .* ((W_p'*((W_p*H).^(beta-2).*V))./(W_p'*(W_p*H).^(beta-1)));
-
+    
     handle(1).CData = H;
     handle(2).CData = W;
     handle(3).CData = W*H;
