@@ -17,6 +17,7 @@ ylim([f(1) f_c])
 axis xy;
 title('Dictionnaire')
 colormap jet;
+caxis([0,250]);
 
 subplot('Position', posV2)
 im3 = aff_spectro(W*H, t, f, f_c, 0);

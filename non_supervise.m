@@ -1,5 +1,5 @@
 close all force;
-clear variables;
+% clear variables;
 addpath(genpath(pwd));
 
 %% Paramètres à modifier
@@ -9,7 +9,9 @@ music = 'audioSource_mix.wav';
 N_win = 2^11;
 
 %% Partie spectro
-[audio, fe] = audioread(music);
+% [audio, fe] = audioread(music);
+[ cutted ] = djing(tracks, 4, fe, 32, 36);
+audio = cutted;
 size(audio)
 N_lap = N_win/2;
 N_fft = N_win;
