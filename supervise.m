@@ -1,6 +1,9 @@
 
+if ([tracks, fe, musiques ] = get_tracks;
 
+[ cutted ] = djing(tracks, [2,4], fe, 32, 36);
 
+n_dict = 2;
 V = stft_abs;
 W = fixe(:,1:2); % prendre la guitare et le piano par exemple
 Wb = rand(size(V,1), n_dict);
