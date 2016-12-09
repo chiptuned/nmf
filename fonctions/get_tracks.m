@@ -1,4 +1,7 @@
 function [ tracks, fe, musiques ] = get_tracks
+% OUTPUTS : - tracks : matrice m*n contenant n pistes de m échantillons
+%           - fe : fréquence d'échantillonnage
+%           - musiques : cellule contenant le nom des pistes audio
 
 musiques = { ...
     'acoustik_gtr.wav'; ...

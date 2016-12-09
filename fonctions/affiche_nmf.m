@@ -1,4 +1,4 @@
-function [ handle ] = affiche_nmf(W, H, t, f, f_c)
+function [ handle ] = affiche_nmf(W, H, t, f, f_c, aff)
 
 dict_axis = 1:size(H,1);
 
@@ -17,9 +17,8 @@ ylim([f(1) f_c])
 axis xy;
 title('Dictionnaire')
 colormap jet;
-caxis([0,250]);
 
 subplot('Position', posV2)
-im3 = aff_spectro(W*H, t, f, f_c, 0);
+im3 = aff_spectro(W*H, t, f, f_c, aff);
 
 handle = [im1, im2, im3];
