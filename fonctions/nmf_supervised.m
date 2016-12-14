@@ -45,6 +45,13 @@ for ind = 1:nb_iter
     W(:,n_dict_fixed+1:end) = Wb;
     H = H .* ((W'*((W*H).^(beta-2).*V))./(W'*(W*H).^(beta-1)));
 
+    energie_W = sum(W);
+    W = W./repmat(energie_W,size(W,1),1);
+    H = H.*repmat(energie_W,size(H,2),1)';
+    
+    % normaliser les energies
+    % normaliser en activation représente des probabilités
+    % en dictionnaire, on normaliser bruit 
     if aff ~= 0
         handle(1).CData = H;
         handle(2).CData = W;
