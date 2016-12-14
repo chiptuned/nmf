@@ -24,7 +24,7 @@ title(['Surf du spectrogramme. N_{win} = ', num2str(N_win), ', N_{lap} = ', num2
 	' et N_{fft} = ', num2str(N_fft)]);
 
 %% NMF par beta-divergence
-[W, H, costs] = nmf_unsupervised(stft_abs, 1, n_dict, 50, t, f, f_c, 1);
+[W, H, costs] = nmf_unsupervised(stft_abs, 1, n_dict, 50, t, f, f_c, 2);
 
 affichage_ecoute_nmf( audio, W, H, f_c, N_win, N_lap, N_fft, fe );
 

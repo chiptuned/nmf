@@ -39,6 +39,10 @@ for ind = 1:nb_iter
     W = W.*((((W*H).^(beta-2).*V)*H')./((W*H).^(beta-1)*H'));
     H = H .* ((W'*((W*H).^(beta-2).*V))./(W'*(W*H).^(beta-1)));
 
+    energie_W = sum(W);
+    W = W./repmat(energie_W,size(W,1),1);
+    H = H.*repmat(energie_W,size(H,2),1)';
+    
     if aff ~= 0
         handle(1).CData = H;
         handle(2).CData = W;
