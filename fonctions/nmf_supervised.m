@@ -32,8 +32,12 @@ H = rand(size(W,2), size(V,2));
 
 if aff ~= 0
     figure;
+    v = VideoWriter(['supervised_rendu-n_dict-', num2str(n_dict_fixed),'.mp4'],'MPEG-4');
     handle = affiche_nmf(W, H, t, f, f_c, aff-1);
     pause;
+    open(v)
+    F=getframe(gcf);
+    writeVideo(v,F.cdata);
 end
 
 costs = zeros(1,nb_iter);
@@ -55,7 +59,11 @@ for ind = 1:nb_iter
     if aff ~= 0
         handle(1).CData = H;
         handle(2).CData = W;
-        handle(3).CData = W*H;
+        handle(3).CData = 10*log10(W*H+1);
+        F=getframe(gcf);
+        for ind2 = 1:5
+            writeVideo(v,F.cdata);
+        end
         drawnow;
     end
     costs(ind) = betaDiv(V, W*H, beta);

@@ -7,7 +7,7 @@ figure;
 for ind = 1:n_dict
     spectro = W(:,ind)*H(ind,:);
     aff_spectro(10*log10(spectro+1), t, f, f_c, 1);
-    title(['Spectrogramme de l''élement ', num2str(ind), ...
+    title(['Spectrogramme de l''élement ', num2str(3), ...
         ' du dictionnaire en fonction de ses activations'])
     new_stft = spectro.*exp(1i*stft_angle);
     % A corriger le istft qui prend un NWIN ~ NFFT
@@ -16,5 +16,7 @@ for ind = 1:n_dict
     %pause
     fprintf('Ecoute du signal %d\n',ind);
     sound(new_x,fe);
+    filename = [num2str(n_dict),'-', num2str(ind),'.wav'];
+    audiowrite(filename,new_x,fe);
     pause(t(end)+0.5);
 end
